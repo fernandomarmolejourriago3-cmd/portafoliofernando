@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fernando Marmolejo | Industrial Engineering · Data · AI</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root{
+  --bg:#080d19; --panel:#0f1728; --panel2:#121d31;
+  --text:#eef4ff; --muted:#9aa9c0; --line:#24324a;
+  --cyan:#35d5ff; --violet:#8c7bff; --green:#52e0ad;
+}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 80% 10%,#16264b 0,transparent 32%),var(--bg);
+ color:var(--text);font-family:Inter,sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}.container{width:min(1120px,92%);margin:auto}
+nav{position:sticky;top:0;z-index:10;background:rgba(8,13,25,.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:"Space Grotesk";font-weight:700;letter-spacing:.5px}.logo span{color:var(--cyan)}
+.links{display:flex;gap:25px;font-size:13px;color:var(--muted)}.links a:hover{color:var(--text)}
+.btn{display:inline-block;padding:12px 18px;border-radius:10px;border:1px solid var(--line);font-weight:600;font-size:13px}
+.btn.primary{background:linear-gradient(135deg,var(--cyan),var(--violet));border:0;color:#07101e}
+.hero{min-height:calc(100vh - 72px);display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+.eyebrow{color:var(--cyan);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+h1{font-family:"Space Grotesk";font-size:clamp(45px,6vw,78px);line-height:.98;margin:16px 0}
+h1 span{background:linear-gradient(90deg,var(--cyan),#b19cff);-webkit-background-clip:text;color:transparent}
+.hero p{font-size:18px;color:var(--muted);max-width:650px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.network{height:410px;border:1px solid var(--line);border-radius:28px;background:linear-gradient(145deg,#101a2c,#0b1221);position:relative;overflow:hidden;box-shadow:0 25px 80px #0005}
+.network:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:38px 38px}
+.node{position:absolute;padding:17px 20px;border:1px solid #35506d;background:#111d31;border-radius:14px;font-weight:700;box-shadow:0 12px 35px #0007}
+.n1{left:10%;top:15%;color:var(--cyan)}.n2{right:10%;top:30%;color:#b19cff}
+.n3{left:19%;bottom:18%;color:var(--green)}.n4{right:15%;bottom:14%;color:#fff}
+.line{position:absolute;height:1px;background:linear-gradient(90deg,var(--cyan),var(--violet));transform-origin:left;opacity:.65}
+.l1{width:220px;left:31%;top:29%;transform:rotate(20deg)}.l2{width:180px;left:28%;top:48%;transform:rotate(-28deg)}
+.l3{width:180px;left:51%;top:55%;transform:rotate(30deg)}
+section{padding:100px 0}.section-title{font-family:"Space Grotesk";font-size:36px;margin:8px 0 35px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:linear-gradient(145deg,var(--panel),#0b1322);border:1px solid var(--line);border-radius:18px;padding:24px;transition:.25s}
+.card:hover{transform:translateY(-5px);border-color:#426182}
+.card .icon{font-size:25px;margin-bottom:15px}.card h3{margin:0 0 8px;font-size:17px}.card p{margin:0;color:var(--muted);font-size:13px}
+.kicker{color:var(--cyan);font-size:11px;font-weight:700;letter-spacing:1.5px}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.project{min-height:250px}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:18px}.tag{font-size:11px;padding:5px 8px;border-radius:20px;background:#18253b;color:#b9c8dc}
+.impact{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.metric{padding:30px;border-left:2px solid var(--cyan);background:var(--panel)}
+.metric strong{font-family:"Space Grotesk";font-size:48px;display:block}.metric span{color:var(--muted);font-size:13px}
+.timeline{border-left:1px solid var(--line);margin-left:10px;padding-left:35px}.job{position:relative;margin-bottom:35px}.job:before{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:var(--cyan);left:-41px;top:8px;box-shadow:0 0 18px var(--cyan)}
+.job h3{margin:0}.job .date{color:var(--cyan);font-size:12px}.job p{color:var(--muted);font-size:13px}
+.skills{display:flex;gap:10px;flex-wrap:wrap}.skill{padding:10px 14px;border:1px solid var(--line);border-radius:9px;background:#0d1626}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:40px}.about p{color:var(--muted)}
+.contact{background:linear-gradient(135deg,#101d35,#111329);border:1px solid var(--line);border-radius:25px;padding:50px;text-align:center}
+footer{padding:30px 0;color:#718098;border-top:1px solid var(--line);font-size:12px}
+@media(max-width:850px){.hero,.about{grid-template-columns:1fr}.network{height:320px}.grid4{grid-template-columns:1fr 1fr}.projects{grid-template-columns:1fr}.impact{grid-template-columns:1fr}.links{display:none}}
+@media(max-width:520px){.grid4{grid-template-columns:1fr}section{padding:70px 0}.contact{padding:30px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="container nav">
+  <div class="logo">FERNANDO<span>.</span>M</div>
+  <div class="links"><a href="#sobre">Sobre mí</a><a href="#capacidades">Capacidades</a><a href="#proyectos">Proyectos</a><a href="#experiencia">Experiencia</a><a href="#datos-contacto">Contacto</a></div>
+  <a class="btn" href="mailto:fernando.marmolejo.urriago.3@gmail.com">Contactar</a>
+</div></nav>
+
+<main>
+<section class="container hero">
+ <div>
+  <div class="eyebrow">Ingeniería Industrial · Data · Automatización · IA</div>
+  <h1>Fernando<br><span>Marmolejo.</span></h1>
+  <p>Ingeniero Industrial orientado a la analítica de datos, automatización de procesos y tecnologías de Inteligencia Artificial.</p>
+  <div class="actions"><a class="btn primary" href="#proyectos">Explorar proyectos →</a><a class="btn" href="#experiencia">Ver experiencia</a></div>
+ </div>
+ <div class="network">
+   <div class="line l1"></div><div class="line l2"></div><div class="line l3"></div>
+   <div class="node n1">DATA</div><div class="node n2">AI</div><div class="node n3">AUTOMATION</div><div class="node n4">BUSINESS</div>
+ </div>
+</section>
+
+<section id="sobre"><div class="container about">
+ <div><div class="eyebrow">01 — PERFIL</div><h2 class="section-title">Ingeniería + datos + tecnología</h2></div>
+ <div><p>Profesional en Ingeniería Industrial con experiencia en formación, gestión, sistemas de información, indicadores, automatización y analítica.</p>
+ <p>Actualmente en formación de Especialización en Inteligencia Artificial, buscando llevar la experiencia empresarial y de datos hacia soluciones tecnológicas de mayor impacto.</p></div>
+</div></section>
+
+<section id="capacidades"><div class="container">
+ <div class="eyebrow">02 — CAPACIDADES</div><h2 class="section-title">Lo que puedo aportar</h2>
+ <div class="grid4">
+  <div class="card"><div class="icon">◈</div><h3>Analítica</h3><p>Power BI, SQL, RStudio y Excel Avanzado para transformar información en indicadores.</p></div>
+  <div class="card"><div class="icon">⚙</div><h3>Automatización</h3><p>Diseño de herramientas y automatizaciones para reducir tareas repetitivas y tiempos operativos.</p></div>
+  <div class="card"><div class="icon">AI</div><h3>Inteligencia Artificial</h3><p>Especialización en IA en curso y orientación hacia aplicaciones empresariales.</p></div>
+  <div class="card"><div class="icon">⌁</div><h3>Procesos</h3><p>Ingeniería Industrial aplicada a gestión, indicadores, calidad y toma de decisiones.</p></div>
+ </div>
+</div></section>
+
+<section id="proyectos"><div class="container">
+ <div class="eyebrow">03 — PROYECTOS / LOGROS</div><h2 class="section-title">Trabajo que demuestra impacto</h2>
+ <div class="projects">
+  <div class="card project"><div class="kicker">SENA · POWER BI</div><h3>Automatización de seguimiento</h3><p>Automatización para el envío de evidencias pendientes y mensajes motivacionales personalizados.</p><div class="tags"><span class="tag">Power BI</span><span class="tag">Automatización</span></div></div>
+  <div class="card project"><div class="kicker">SENA · WEB</div><h3>Página de consulta</h3><p>Creación de una página de consulta para facilitar la interacción entre aprendices e instructores.</p><div class="tags"><span class="tag">Web</span><span class="tag">Información</span></div></div>
+  <div class="card project"><div class="kicker">ORAL BRACKETS · EXCEL</div><h3>Informes automatizados</h3><p>Matrices y formatos dinámicos con macros para disminuir el tiempo de elaboración de informes de gestión.</p><div class="tags"><span class="tag">Excel</span><span class="tag">VBA</span><span class="tag">Indicadores</span></div></div>
+  <div class="card project"><div class="kicker">ORAL BRACKETS · DATA</div><h3>Integración de información</h3><p>Integración de información de tres sedes mediante formatos en la nube de Drive.</p><div class="tags"><span class="tag">Cloud</span><span class="tag">Gestión</span></div></div>
+  <div class="card project"><div class="kicker">COOPSIGLO · AZURE</div><h3>Contingencia y seguridad</h3><p>Parametrización para traslado de información a Azure Web y apoyo en políticas de seguridad de información.</p><div class="tags"><span class="tag">Azure</span><span class="tag">Seguridad</span></div></div>
+  <div class="card project"><div class="kicker">ANALÍTICA</div><h3>Business Intelligence</h3><p>Experiencia en elaboración de tableros de indicadores y modelos de Big Data orientados a la toma de decisiones.</p><div class="tags"><span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">Big Data</span></div></div>
+ </div>
+</div></section>
+
+<section><div class="container">
+ <div class="eyebrow">04 — IMPACTO</div><h2 class="section-title">Resultados destacados</h2>
+ <div class="impact">
+  <div class="metric"><strong>90%</strong><span>Nivel de confianza reportado en la información presentada a comité de gerencia.</span></div>
+  <div class="metric"><strong>3</strong><span>Sedes integradas mediante formatos y herramientas en la nube.</span></div>
+  <div class="metric"><strong>+2 años</strong><span>Experiencia enseñando tecnología, logística y matemáticas.</span></div>
+ </div>
+</div></section>
+
+<section id="experiencia"><div class="container">
+ <div class="eyebrow">05 — TRAYECTORIA</div><h2 class="section-title">Experiencia profesional</h2>
+ <div class="timeline">
+  <div class="job"><div class="date">2026 · SENA</div><h3>Instructor</h3><p>Formación, entornos virtuales, razonamiento lógico y automatización de procesos.</p></div>
+  <div class="job"><div class="date">2025 · SENA</div><h3>Instructor</h3><p>Formación y desarrollo de automatizaciones para informes y una página de consulta.</p></div>
+  <div class="job"><div class="date">2023–2024 · Oral Brackets</div><h3>Coordinador Administrativo</h3><p>Indicadores, gastos, compras, CRM, documentación, calidad y automatización de informes.</p></div>
+  <div class="job"><div class="date">2022–2023 · Coopsiglo XX</div><h3>Operador de Sistemas</h3><p>Sistemas, contingencia, Azure, seguridad de información y soporte operativo.</p></div>
+  <div class="job"><div class="date">2020–2021 · Gases de Occidente</div><h3>Auxiliar de Inspecciones</h3><p>Seguimiento de órdenes de trabajo, auditoría documental e indicadores operativos.</p></div>
+ </div>
+</div></section>
+
+<section><div class="container">
+ <div class="eyebrow">06 — STACK</div><h2 class="section-title">Herramientas</h2>
+ <div class="skills"><span class="skill">Excel Avanzado</span><span class="skill">Power BI</span><span class="skill">SQL</span><span class="skill">RStudio</span><span class="skill">Big Data</span><span class="skill">VBA</span><span class="skill">Azure</span><span class="skill">CRM</span><span class="skill">Inteligencia Artificial</span></div>
+</div></section>
+
+
+<section id="datos-contacto"><div class="container">
+ <div class="eyebrow">07 — DATOS DE CONTACTO</div>
+ <h2 class="section-title">Todos mis canales de contacto</h2>
+ <div class="projects">
+   <div class="card">
+     <div class="kicker">CONTACTO DIRECTO</div>
+     <h3>Teléfono móvil</h3>
+     <p style="font-size:18px;color:#eef4ff;font-weight:700;margin-top:12px">
+       <a href="tel:+573187974550">318 797 4550</a>
+     </p>
+     <div class="actions"><a class="btn primary" href="tel:+573187974550">Llamar</a>
+     <a class="btn" href="https://wa.me/573187974550" target="_blank">WhatsApp</a></div>
+   </div>
+   <div class="card">
+     <div class="kicker">CORREO PROFESIONAL</div>
+     <h3>Email</h3>
+     <p style="font-size:15px;color:#eef4ff;font-weight:600;margin-top:12px;word-break:break-word">
+       fernando.marmolejo.urriago.3@gmail.com
+     </p>
+     <div class="actions"><a class="btn primary" href="mailto:fernando.marmolejo.urriago.3@gmail.com">Enviar correo</a></div>
+   </div>
+   <div class="card">
+     <div class="kicker">REFERENCIAS PROFESIONALES</div>
+     <h3>Contactos del CV</h3>
+     <p><strong>Paula Andrea Urbano Gomez</strong><br>Coordinadora · SENA<br>
+     <a href="tel:+573164732909">316 473 2909</a></p>
+     <p><strong>Jaime Losada Araujo</strong><br>Gerente · Oral Brackets<br>
+     <a href="tel:+573153236344">315 323 6344</a></p>
+     <p><strong>Leonardo Falla López</strong><br>Jefe de Inspecciones · Gases de Occidente<br>
+     <a href="tel:+573148903150">314 890 3150</a></p>
+   </div>
+ </div>
+ <div class="card" style="margin-top:18px">
+   <div class="kicker">OTRA REFERENCIA DEL CV</div>
+   <p><strong>Ruth Ascuntar</strong> · Analista de Créditos · Coopsiglo XX<br>
+   <a href="tel:+573167205452">316 720 5452</a></p>
+ </div>
+</div></section>
+
+<section id="contacto"><div class="container"><div class="contact">
+ <div class="eyebrow">08 — CONTACTO</div><h2 class="section-title">¿Tienes un proceso que pueda optimizarse?</h2>
+ <p style="color:var(--muted)">Conversemos sobre analítica, automatización, procesos e Inteligencia Artificial.</p>
+ <div class="actions" style="justify-content:center"><a class="btn primary" href="mailto:fernando.marmolejo.urriago.3@gmail.com">Escribirme por correo</a></div>
+ </div></div></section>
+</main>
+<footer><div class="container">Fernando Marmolejo Urriago · Ingeniero Industrial · Especialización en Inteligencia Artificial (en curso)</div></footer>
+</body></html>
